@@ -51,7 +51,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 10%;
+  padding:  60px 10%;
   background-color: #111;
 }
 
@@ -67,7 +67,7 @@ body {
 .about-image img {
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  /* box-shadow: 0 10px 25px rgba(0,0,0,0.6); */
   transition: transform 0.5s ease;
 }
 
