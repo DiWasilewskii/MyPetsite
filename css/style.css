@@ -123,7 +123,7 @@ body {
 
 
 /* ===== Portfolio Section ===== */
- .portfolio-section {
+.portfolio-section {
   padding: 100px 10%;
   background-color: #1a1a1a;
   text-align: center;
@@ -139,42 +139,64 @@ body {
   color: #c9974d;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  justify-items: center; /* центрує контент у кожній клітинці */
+/* === НОВЕ під карусель === */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
 }
 
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 
-
-
-/* .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-} */
-
+/* Кожна картка */
 .portfolio-item {
   position: relative;
+  flex: 0 0 calc(100% / 3); /* по 3 штуки одночасно */
+  
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   transition: transform 0.4s ease;
 }
 
 .portfolio-item img {
-  width: 500px;
+  width: 100%;
   height: 250px;
+  object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+   
 }
 
 .portfolio-item:hover img {
   transform: scale(1.1);
 }
 
+
+.carousel-container{
+  --gap: 20px;                  /* керує проміжками */
+  position: relative;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 var(--gap);        /* симетрія ліворуч/праворуч */
+}
+
+.carousel-track{
+  display: flex;
+  gap: var(--gap);              /* замість margin на картках */
+  transition: transform .5s ease-in-out;
+}
+
+/* Оверлей */
 .overlay {
   position: absolute;
   inset: 0;
@@ -190,12 +212,42 @@ body {
 
 .portfolio-item:hover .overlay {
   opacity: 1;
+  overflow: visible;
 }
 
 .overlay h3 {
   font-size: 1.5rem;
   color: #c9974d;
   margin-bottom: 10px;
+}
+
+
+/* Кнопки */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+.carousel-btn.left {
+  left: -60px;   /* винесено зліва */
+}
+
+.carousel-btn.right {
+  right: -60px;  /* винесено справа */
 }
 
 
@@ -207,10 +259,11 @@ body {
 .site-footer {
   background-color: #111;
   color: #f5f5f5;
-  padding: 60px 10% 30px;
+  padding: 60px 120px;
 }
 
 .footer-container {
+  /* align-items: center; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
@@ -219,13 +272,18 @@ body {
 
 .footer-info h3,
 .footer-socials h3 {
+  /* align-items: center; */
+ 
+  
   color: #c9974d;
+  margin-left: 30px;
   margin-bottom: 15px;
   font-size: 1.3rem;
 }
 
 .footer-info p,
 .footer-info a {
+  margin-left: 30px;
   font-size: 1rem;
   color: #ccc;
   text-decoration: none;
@@ -241,7 +299,10 @@ body {
   gap: 15px;
 }
 
+
+
 .footer-socials a {
+  margin-left: 30px;  
   color: #ccc;
   text-decoration: none;
   font-size: 1rem;
