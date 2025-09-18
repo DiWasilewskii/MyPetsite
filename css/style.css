@@ -8,6 +8,121 @@ body {
 }
 
 
+/* ===== АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ ===== */
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 15px 5%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .nav-menu a {
+    margin-left: 15px;
+    font-size: 0.95rem;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .portfolio-item {
+    flex: 0 0 calc(100% / 2); /* по 2 на планшеті */
+  }
+
+  .carousel-btn.left {
+    left: -30px;
+  }
+
+  .carousel-btn.right {
+    right: -30px;
+  }
+
+  .site-footer {
+    padding: 40px;
+  }
+}
+
+/* ===== АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ ===== */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 5%;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-menu a {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .btn-learn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .portfolio-item {
+    flex: 0 0 100%; /* одна картка на телефоні */
+  }
+
+  .portfolio-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+
+  .site-footer {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-info h3,
+  .footer-socials h3,
+  .footer-info p,
+  .footer-info a,
+  .footer-socials a {
+    margin-left: 0;
+  }
+}
+
+
 /* ===== Header ===== */
 .site-header {
   position: fixed;        /* прилипає зверху */
