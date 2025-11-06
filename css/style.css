@@ -8,7 +8,7 @@ body {
 }
 
 
-body::before {
+/* body::before {
   z-index: 1;
   content: "";
   position: fixed;
@@ -16,13 +16,13 @@ body::before {
   height: 200%;
   background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
   animation: moveStars 100s linear infinite;
-}
+} */
 
 
-@keyframes moveStars {
+/* @keyframes moveStars {
   from { transform: translateY(0); }
   to { transform: translateY(-1000px); }
-}
+} */
 /* diagmonds.png */
 
 
@@ -120,7 +120,7 @@ body::before {
 
 .about-content {
   margin-left: 50px;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(40px);
   transition: all 0.8s ease-in-out;
 }
