@@ -48,7 +48,7 @@ body {
   transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* Лого */
+/* Лого Лого Лого Лого Лого Лого Лого Лого Лого*/
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -81,7 +81,7 @@ body {
 .header-menu a:hover {
   color: #c9974d;
 }
-/* about */ /* about *//* about *//* about *//* about *//* about */
+/* about about about about about about about about about*/ 
 
 .about-section {
   min-height: 100vh;
@@ -148,6 +148,8 @@ body {
   margin-bottom: 30px;
 }
 
+
+
 .btn-learn {
   display: inline-block;
   padding: 12px 28px;
@@ -165,7 +167,7 @@ body {
 }
 
 
-
+/* about about about about about about about about about*/ 
 
 /* ===== Portfolio Section ===== */
 .portfolio-section {
@@ -267,7 +269,7 @@ body {
 }
 
 
-/* Кнопки */
+/* Кнопки каруселі*/
 .carousel-btn {
   position: absolute;
   top: 50%;
