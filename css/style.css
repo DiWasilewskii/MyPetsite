@@ -76,11 +76,63 @@ body {
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
+  
 }
 
 .header-menu a:hover {
   color: #c9974d;
 }
+
+
+
+/* .waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: var(--color);
+  box-shadow: inset 0 0 00px rgba(0, 0, 0, 0.5);
+  transition: 500ms;
+ 
+}
+
+.waves::before,
+.waves::after {
+  content: '';
+  position: absolute;
+  width: 300vw;
+  height: 300vw;
+  top: -65vw;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.waves::before {
+  border-radius: 44%;
+  background: rgba(51, 51, 51, 0.1);
+  backdrop-filter: blur(12px);
+  animation: waves 8s linear infinite;
+}
+
+.waves::after {
+  border-radius: 44%;
+  background: rgba(51, 51, 51, 0.2);
+  backdrop-filter: blur(12px);
+  animation: waves 15s linear infinite;
+}
+
+@keyframes waves {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+} */
+
+
 /* about about about about about about about about about*/ 
 
 .about-section {
@@ -92,7 +144,7 @@ body {
   padding-top: 0px;
   padding-bottom: 0px;
   
-  background-color: #010B13;
+  background-color: #111111;
 }
 
 .about-container {
@@ -110,18 +162,18 @@ body {
 
    }
 
-   .image-me:hover { 
+   /* .image-me:hover { 
   
   filter: drop-shadow(1px 1px 25px #282828);
 
-   }
+   } */
 
 .about-image img {
 
   display: block;
   width: 100%;
   border-radius: 20px;
-  /* box-shadow: 0 10px 25px rgba(0,0,0,0.6); */
+ 
   transition: transform 0.5s ease;
   z-index: 200;
 }
@@ -176,7 +228,13 @@ body {
 .btn-learn:hover {
   background: #c9974d;
   color: #010B13;
+  filter: drop-shadow(1px 1px 10px #c9974d)
 }
+
+
+
+
+
 
 
 /* about about about about about about about about about*/ 
@@ -343,6 +401,11 @@ body {
   font-size: 1rem;
   color: #ccc;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
 }
 
 .footer-info a:hover {
@@ -353,16 +416,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  margin-left: 30px;
 }
 
 
 
 .footer-socials a {
-  margin-left: 30px;  
   color: #ccc;
   text-decoration: none;
   font-size: 1rem;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .footer-socials a:hover {
@@ -376,6 +444,18 @@ body {
   font-size: 0.9rem;
   color: #aaa;
 }
+
+
+.soc-icon-footer { 
+  fill: #ccc;
+  transition: fill 0.3s ease, filter 0.3s ease;
+}
+
+.soc-icon-footer:hover { 
+  fill: #c9974d;
+  filter: drop-shadow(0px 0px 8px rgba(201, 151, 77, 0.6));
+}
+
 
 
 /* ===== RESPONSIVE DESIGN ===== */
