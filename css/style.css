@@ -155,6 +155,9 @@ body {
   transition: 0.3s;
 =======
   transition: color 0.3s;
+<<<<<<< HEAD
+>>>>>>> parent of eea83c8 (up icon)
+=======
 >>>>>>> parent of eea83c8 (up icon)
 }
 
@@ -162,10 +165,13 @@ body {
   color: #c9974d;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 /* about */
 =======
+=======
+>>>>>>> parent of eea83c8 (up icon)
 /* about about about about about about about about about*/ 
 >>>>>>> parent of eea83c8 (up icon)
 
@@ -183,6 +189,9 @@ body {
   padding-bottom: 0px;
   
   background-color: #010B13;
+<<<<<<< HEAD
+>>>>>>> parent of eea83c8 (up icon)
+=======
 >>>>>>> parent of eea83c8 (up icon)
 }
 
@@ -264,6 +273,7 @@ body {
 .btn-learn:hover {
   background: #c9974d;
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #111;
 }
 
@@ -273,6 +283,12 @@ body {
 }
 
 
+=======
+  color: #010B13;
+}
+
+
+>>>>>>> parent of eea83c8 (up icon)
 /* about about about about about about about about about*/ 
 >>>>>>> parent of eea83c8 (up icon)
 
@@ -475,7 +491,10 @@ body {
   color: #aaa;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of eea83c8 (up icon)
 
 
 /* ===== RESPONSIVE DESIGN ===== */
