@@ -151,23 +151,39 @@ body {
   text-decoration: none;
   margin-left: 30px;
   font-size: 1rem;
+<<<<<<< HEAD
   transition: 0.3s;
+=======
+  transition: color 0.3s;
+>>>>>>> parent of eea83c8 (up icon)
 }
 
 .nav-menu a:hover {
   color: #c9974d;
 }
+<<<<<<< HEAD
 
 
 /* about */
+=======
+/* about about about about about about about about about*/ 
+>>>>>>> parent of eea83c8 (up icon)
 
 .about-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   padding:  60px 10%;
   background-color: #111;
+=======
+  padding: 10% 0; 
+  padding-top: 0px;
+  padding-bottom: 0px;
+  
+  background-color: #010B13;
+>>>>>>> parent of eea83c8 (up icon)
 }
 
 .about-container {
@@ -179,6 +195,21 @@ body {
   width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+.image-me { 
+  
+  filter: drop-shadow(0px 1px 25px #010B13);
+
+   }
+
+   .image-me:hover { 
+  
+  filter: drop-shadow(1px 1px 25px #282828);
+
+   }
+
+>>>>>>> parent of eea83c8 (up icon)
 .about-image img {
   width: 100%;
   border-radius: 20px;
@@ -232,10 +263,18 @@ body {
 
 .btn-learn:hover {
   background: #c9974d;
+<<<<<<< HEAD
   color: #111;
 }
 
 
+=======
+  color: #010B13;
+}
+
+
+/* about about about about about about about about about*/ 
+>>>>>>> parent of eea83c8 (up icon)
 
 /* ===== Portfolio Section ===== */
 .portfolio-section {
@@ -435,3 +474,504 @@ body {
   font-size: 0.9rem;
   color: #aaa;
 }
+<<<<<<< HEAD
+=======
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  body {
+    max-width: 100%;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 15px 5%;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .header-menu {
+    gap: 15px;
+  }
+
+  .header-menu a {
+    font-size: 0.95rem;
+  }
+
+  /* About Section */
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 100%;
+    padding: 0 5%;
+  }
+
+  .about-content {
+    margin-left: 0;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  /* Portfolio */
+  .portfolio-section {
+    padding: 20px 5%;
+  }
+
+  .portfolio-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .portfolio-item {
+    flex: 0 0 calc(100% / 2);
+  }
+
+  .carousel-btn.left {
+    left: -40px;
+  }
+
+  .carousel-btn.right {
+    right: -40px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 40px 5%;
+  }
+
+  .footer-container {
+    gap: 30px;
+  }
+
+  .footer-info h3,
+  .footer-socials h3 {
+    margin-left: 0;
+  }
+
+  .footer-info p,
+  .footer-info a {
+    margin-left: 0;
+  }
+
+  .footer-socials a {
+    margin-left: 0;
+  }
+}
+
+/* Small Tablets and Large Phones (600px - 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 12px 4%;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .nav-menu {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .header-menu {
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .header-menu a {
+    font-size: 0.9rem;
+  }
+
+  /* About Section */
+  .about-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 4%;
+  }
+
+  .about-image img {
+    border-radius: 15px;
+  }
+
+  .about-content {
+    margin-left: 0;
+  }
+
+  .about-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .btn-learn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  /* Portfolio */
+  .portfolio-section {
+    padding: 40px 4%;
+  }
+
+  .portfolio-title {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+
+  .carousel-container {
+    padding: 0 10px;
+  }
+
+  .portfolio-item {
+    flex: 0 0 100%;
+    border-radius: 15px;
+  }
+
+  .portfolio-item img {
+    height: 200px;
+  }
+
+  .carousel-btn {
+    padding: 10px 14px;
+    font-size: 1.5rem;
+  }
+
+  .carousel-btn.left {
+    left: 5px;
+  }
+
+  .carousel-btn.right {
+    right: 5px;
+  }
+
+  .overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .overlay p {
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 30px 4%;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-info h3,
+  .footer-socials h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-info p,
+  .footer-info a,
+  .footer-socials a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    padding-top: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Phones (480px - 599px) */
+@media (max-width: 599px) {
+  body {
+    font-size: 13px;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 10px 3%;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .header-menu {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .header-menu a {
+    font-size: 0.8rem;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 50px 0;
+  }
+
+  .about-container {
+    padding: 0 3%;
+    gap: 20px;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .btn-learn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+
+  /* Portfolio */
+  .portfolio-section {
+    padding: 30px 3%;
+  }
+
+  .portfolio-title {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+  }
+
+  .carousel-container {
+    padding: 0 5px;
+    margin: 0 auto;
+  }
+
+  .carousel-track {
+    gap: 10px;
+  }
+
+  .portfolio-item {
+    flex: 0 0 100%;
+    border-radius: 12px;
+  }
+
+  .portfolio-item img {
+    height: 180px;
+  }
+
+  .carousel-btn {
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    z-index: 10;
+  }
+
+  .carousel-btn.left {
+    left: 2px;
+  }
+
+  .carousel-btn.right {
+    right: 2px;
+  }
+
+  .overlay h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .overlay p {
+    font-size: 0.8rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 25px 3%;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .footer-info h3,
+  .footer-socials h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-info p,
+  .footer-info a,
+  .footer-socials a {
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom {
+    padding-top: 12px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra Small Phones (< 480px) */
+@media (max-width: 479px) {
+  body {
+    font-size: 12px;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 8px 3%;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .header-menu {
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-menu a {
+    font-size: 0.75rem;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 40px 0;
+    min-height: auto;
+  }
+
+  .about-container {
+    padding: 0 3%;
+    gap: 15px;
+  }
+
+  .about-image img {
+    border-radius: 12px;
+  }
+
+  .about-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .about-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .btn-learn {
+    padding: 7px 18px;
+    font-size: 0.8rem;
+  }
+
+  /* Portfolio */
+  .portfolio-section {
+    padding: 25px 3%;
+  }
+
+  .portfolio-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .carousel-container {
+    padding: 0 3px;
+  }
+
+  .carousel-track {
+    gap: 8px;
+  }
+
+  .portfolio-item {
+    flex: 0 0 100%;
+    border-radius: 10px;
+  }
+
+  .portfolio-item img {
+    height: 160px;
+  }
+
+  .carousel-btn {
+    padding: 6px 10px;
+    font-size: 1rem;
+  }
+
+  .carousel-btn.left {
+    left: 0;
+  }
+
+  .carousel-btn.right {
+    right: 0;
+  }
+
+  .overlay h3 {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+
+  .overlay p {
+    font-size: 0.75rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 20px 3%;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .footer-info h3,
+  .footer-socials h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .footer-info p,
+  .footer-info a,
+  .footer-socials a {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom {
+    padding-top: 10px;
+    font-size: 0.7rem;
+  }
+}
+>>>>>>> parent of eea83c8 (up icon)
