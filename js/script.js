@@ -15,5 +15,36 @@ AOS.init({
   once: true
 });
 
+// Контактне модальне вікно
+(function() {
+  const fab = document.getElementById("contactFab");
+  const modal = document.getElementById("contactModal");
+  const closeBtn = document.getElementById("contactClose");
 
+  if (!fab || !modal || !closeBtn) return;
 
+  const openModal = () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+  };
+
+  fab.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
+})();
