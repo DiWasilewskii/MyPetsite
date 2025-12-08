@@ -6,7 +6,6 @@ if (container) {
   const nextBtn = container.querySelector('.carousel-btn.right');
   const filterBtns = document.querySelectorAll('.portfolio-filters .filter-btn');
 
-  const visible = 3;
   let items = [];
   let index = 0;
 
@@ -24,14 +23,21 @@ if (container) {
     return itemW + gap;
   };
 
+  const visibleCount = () => {
+    const size = stepSize();
+    if (!size) return 1;
+    const containerWidth = container.getBoundingClientRect().width;
+    return Math.max(1, Math.round(containerWidth / size));
+  };
+
   const clampIndex = () => {
-    const maxIndex = Math.max(items.length - visible, 0);
+    const maxIndex = Math.max(items.length - visibleCount(), 0);
     if (index > maxIndex) index = maxIndex;
     if (index < 0) index = 0;
   };
 
   const syncNavState = () => {
-    const maxIndex = Math.max(items.length - visible, 0);
+    const maxIndex = Math.max(items.length - visibleCount(), 0);
     if (prevBtn) prevBtn.disabled = index === 0;
     if (nextBtn) nextBtn.disabled = index >= maxIndex;
   };
@@ -51,7 +57,7 @@ if (container) {
 
   const nextSlide = () => {
     collectItems();
-    if (index < items.length - visible) {
+    if (index < items.length - visibleCount()) {
       index += 1;
       update();
     }
@@ -93,6 +99,50 @@ if (container) {
     },
     { passive: false }
   );
+
+  // Swipe support for touch devices
+  let startX = 0;
+  let startY = 0;
+  let isSwiping = false;
+
+  const onTouchStart = (e) => {
+    const touch = e.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
+    isSwiping = false;
+  };
+
+  const onTouchMove = (e) => {
+    if (!e.touches.length) return;
+    const { clientX, clientY } = e.touches[0];
+    const dx = clientX - startX;
+    const dy = clientY - startY;
+
+    // Починаємо свайп лише якщо горизонтальний рух більший за вертикальний
+    if (!isSwiping && Math.abs(dx) > Math.abs(dy) + 5) {
+      isSwiping = true;
+    }
+
+    if (isSwiping) {
+      e.preventDefault(); // блокуємо вертикальний скрол всередині каруселі
+    }
+  };
+
+  const onTouchEnd = (e) => {
+    if (!isSwiping) return;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - startX;
+    const threshold = 40; // мінімальна відстань для свайпу
+
+    if (Math.abs(dx) > threshold) {
+      dx < 0 ? nextSlide() : prevSlide();
+    }
+    isSwiping = false;
+  };
+
+  track.addEventListener('touchstart', onTouchStart, { passive: true });
+  track.addEventListener('touchmove', onTouchMove, { passive: false });
+  track.addEventListener('touchend', onTouchEnd, { passive: true });
 
   window.addEventListener('resize', update);
   applyFilter('web-dev');

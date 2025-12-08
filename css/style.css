@@ -483,6 +483,61 @@ body {
   transition: transform .5s ease-in-out;
 }
 
+@media (max-width: 1024px) {
+  .portfolio-section {
+    padding: 40px 8%;
+  }
+
+  .portfolio-title {
+    font-size: 2.2rem;
+    margin-bottom: 46px;
+  }
+
+  .carousel-container {
+    --gap: 16px;
+    padding: 0 12px;
+  }
+
+  .portfolio-item {
+    flex: 0 0 calc(50% - var(--gap));
+  }
+
+  .carousel-btn.left { left: -24px; }
+  .carousel-btn.right { right: -24px; }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 40px 6%;
+  }
+
+  .portfolio-filters {
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 9px 14px;
+    font-size: 0.95rem;
+  }
+
+  .carousel-container {
+    --gap: 12px;
+    padding: 0;
+  }
+
+  .portfolio-item {
+    flex: 0 0 100%;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 10px 14px;
+  }
+
+  .carousel-btn.left { left: 6px; }
+  .carousel-btn.right { right: 6px; }
+}
+
 /* Оверлей */
 .overlay {
   position: absolute;
