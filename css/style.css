@@ -8,6 +8,10 @@ body {
 }
 
 /* Floating contact button */
+
+
+
+
 .contact-fab {
   position: fixed;
   bottom: 26px;
@@ -60,7 +64,50 @@ body {
   box-shadow: 0 0 0 4px rgba(201, 151, 77, 0.14), 0 12px 32px rgba(1, 11, 19, 0.45);
 }
 
+/* Робимо іконки накладеними одна на одну */
+.contact-fab .fab-icon {
+  position: relative;
+}
 
+.icon-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* За замовчуванням всі приховані */
+  animation: cycleIcons 9s infinite; /* 9 секунд на повний цикл (по 3 сек на іконку) */
+}
+
+/* Налаштовуємо затримку для кожної іконки */
+.icon-1 {
+  animation-delay: 0s;
+}
+
+.icon-2 {
+  animation-delay: 3s;
+}
+
+.icon-3 {
+  animation-delay: 6s;
+}
+
+/* Анімація появи та зникнення */
+@keyframes cycleIcons {
+  0%, 30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  33%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* Додатково: трохи підправимо центрування, якщо іконки змістилися */
+.contact-fab .fab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 .sr-only {
@@ -1158,3 +1205,7 @@ body {
     font-size: 0.7rem;
   }
 }
+
+
+
+
