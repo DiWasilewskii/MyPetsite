@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,7 +28,7 @@
 
  
  <body>
-    <button class="contact-fab" id="contactFab" aria-label="Відкрити контакти">
+    <button class="contact-fab" id="contactFab" aria-label="Відкрити контакти" data-aria-label-key="contactFab">
       <svg class="fab-icon" width="36" height="36" aria-hidden="true" focusable="false" role="img">
        
         <use class="icon-part icon-1" href="./img/cat.svg#icon-cat1"></use>
@@ -46,16 +46,35 @@
       <nav class="nav-menu">
         <ul class="header-menu">
           <li class="links">
-            <a class="links-nav current" href="#about">About</a>
+            <a class="links-nav current" href="#about" data-i18n="nav.about">About</a>
           </li>
           <li class="links">
-            <a class="links-nav" href="#portfolio">Portfolio</a>
+            <a class="links-nav" href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
           </li>
           <li class="links">
-            <a class="links-nav" href="#contact">Contacts</a>
+            <a class="links-nav" href="#contact" data-i18n="nav.contact">Contacts</a>
           </li>
         </ul>
       </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+        <svg class="theme-icon sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <span class="lang-text" id="langText">UA</span>
+      </button>
        <!-- <div class="waves"></div> -->
     </header>
 
@@ -71,15 +90,16 @@
           <!-- Права частина (текст) -->
           <div class="about-content">
             <h2 class="about-title">
-              About <span class="about-highlight">Me</span>
+              <span data-i18n="about.title">About</span> <span class="about-highlight" data-i18n="about.me">Me</span>
             </h2>
-            <p class="about-text">
-              At <strong>Vision Studio</strong>, we believe in capturing the
-              essence of life through art. Our portraits are more than
-              photographs – they are timeless stories told with light, shadow,
-              and creativity.
+            <p class="about-text" data-i18n="about.text">
+              My name is <strong>Dima Wasilewski</strong> and I am an ICT teacher, web designer, and creator of digital educational materials. I create modern websites, presentations, technical infographics, and visual content, combining stylish design, usability, and clear information delivery.
+
+I work with HTML, CSS, and JavaScript, develop responsive websites, and design educational and creative projects for digital and online environments. I pay special attention to minimalist design, details, and visual aesthetics.
+
+In my work, I strive to create not just visually appealing projects, but solutions that work effectively, attract attention, and leave a strong impression.
             </p>
-            <a href="#contact" class="btn-learn">Contacts</a>
+            <a href="#contact" class="btn-learn" data-i18n="about.button">Contacts</a>
           </div>
          
         </div>
@@ -88,11 +108,11 @@
       <!-- Portfolio Portfolio Portfolio Portfolio Portfolio Portfolio Portfolio  -->
 
       <section class="portfolio-section" id="portfolio">
-        <h2 class="portfolio-title">My <span>Portfolio</span></h2>
+        <h2 class="portfolio-title"><span data-i18n="portfolio.my">My</span> <span data-i18n="portfolio.title">Portfolio</span></h2>
         <div class="portfolio-filters" aria-label="Portfolio filters" role="group">
-          <button class="filter-btn is-active" data-filter="web-dev">Web developing</button>
-          <button class="filter-btn" data-filter="web-design">Web design</button>
-          <button class="filter-btn" data-filter="education">Education</button>
+          <button class="filter-btn is-active" data-filter="web-dev" data-i18n="portfolio.filter1">Web developing</button>
+          <button class="filter-btn" data-filter="web-design" data-i18n="portfolio.filter2">Web design</button>
+          <button class="filter-btn" data-filter="education" data-i18n="portfolio.filter3">Education</button>
         </div>
 
         <div class="carousel-container">
@@ -101,72 +121,72 @@
             <div class="portfolio-item" data-aos="zoom-in" data-category="web-dev">
               <img src="img/project1.jpg" alt="Project 1" />
               <div class="overlay">
-                <h3>Project 1</h3>
-                <p>Landing Page (HTML/CSS/JS)</p>
+                <h3 data-i18n="portfolio.project1.title">Project 1</h3>
+                <p data-i18n="portfolio.project1.desc">Landing Page (HTML/CSS/JS)</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100" data-category="web-dev">
               <img src="img/project2.jpg" alt="Project 2" />
               <div class="overlay">
-                <h3>Project 2</h3>
-                <p>Portfolio Website</p>
+                <h3 data-i18n="portfolio.project2.title">Project 2</h3>
+                <p data-i18n="portfolio.project2.desc">Portfolio Website</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200" data-category="web-design">
               <img src="img/project3.jpg" alt="Project 3" />
               <div class="overlay">
-                <h3>Project 3</h3>
-                <p>Mobile App UI Kit</p>
+                <h3 data-i18n="portfolio.project3.title">Project 3</h3>
+                <p data-i18n="portfolio.project3.desc">Mobile App UI Kit</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300" data-category="web-dev">
               <img src="img/project4.jpg" alt="Project 4" />
               <div class="overlay">
-                <h3>Project 4</h3>
-                <p>E‑commerce SPA</p>
+                <h3 data-i18n="portfolio.project4.title">Project 4</h3>
+                <p data-i18n="portfolio.project4.desc">E‑commerce SPA</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="400" data-category="web-dev">
               <img src="img/project5.jpg" alt="Project 5" />
               <div class="overlay">
-                <h3>Project 5</h3>
-                <p>Business Website</p>
+                <h3 data-i18n="portfolio.project5.title">Project 5</h3>
+                <p data-i18n="portfolio.project5.desc">Business Website</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="500" data-category="web-design">
               <img src="img/project6.jpg" alt="Project 6" />
               <div class="overlay">
-                <h3>Project 6</h3>
-                <p>Creative Concept</p>
+                <h3 data-i18n="portfolio.project6.title">Project 6</h3>
+                <p data-i18n="portfolio.project6.desc">Creative Concept</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="500" data-category="education">
               <img src="img/project6.jpg" alt="Project 6" />
               <div class="overlay">
-                <h3>Course Project 1</h3>
-                <p>Education Platform</p>
+                <h3 data-i18n="portfolio.project7.title">Course Project 1</h3>
+                <p data-i18n="portfolio.project7.desc">Education Platform</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="500" data-category="education">
               <img src="img/project6.jpg" alt="Project 6" />
               <div class="overlay">
-                <h3>Course Project 2</h3>
-                <p>Learning Dashboard</p>
+                <h3 data-i18n="portfolio.project8.title">Course Project 2</h3>
+                <p data-i18n="portfolio.project8.desc">Learning Dashboard</p>
               </div>
             </div>
 
             <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="500" data-category="education">
               <img src="img/project6.jpg" alt="Project 6" />
               <div class="overlay">
-                <h3>Course Project 3</h3>
-                <p>Certificate Builder</p>
+                <h3 data-i18n="portfolio.project9.title">Course Project 3</h3>
+                <p data-i18n="portfolio.project9.desc">Certificate Builder</p>
               </div>
             </div>
           </div>
@@ -183,7 +203,7 @@
       <div class="footer-container">
         <!-- Контакти -->
         <div class="footer-info">
-          <h3>Contacts</h3>
+          <h3 data-i18n="footer.contacts">Contacts</h3>
                     <a href="mailto:diwasilewskii@gmail.com">   
                       <svg class="soc-icon-footer" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-google"></use>
@@ -198,7 +218,7 @@
 
         <!-- Соцмережі -->
         <div class="footer-socials">
-          <h3>I'm in Social</h3>
+          <h3 data-i18n="footer.social">I'm in Social</h3>
           <div class="social-links">
             <a href="https://t.me/Dima_Tiger" target="_blank"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-telegram"></use>
@@ -219,15 +239,15 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2025 DiWasilewskii. Усі права захищені.</p>
+        <p data-i18n="footer.copyright">© 2025 DiWasilewskii. Усі права захищені.</p>
       </div>
     </footer>
 
     <div class="contact-modal-backdrop" id="contactModal" aria-hidden="true">
       <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-        <button class="contact-close" id="contactClose" aria-label="Закрити вікно">✕</button>
-        <h3 id="contactModalTitle">Зв'язатися зі мною</h3>
-        <p>Оберіть зручний спосіб, я відповім максимально швидко.</p>
+        <button class="contact-close" id="contactClose" aria-label="Закрити вікно" data-aria-label-key="contactClose">✕</button>
+        <h3 id="contactModalTitle" data-i18n="modal.title">Зв'язатися зі мною</h3>
+        <p data-i18n="modal.subtitle">Оберіть зручний спосіб, я відповім максимально швидко.</p>
         <div class="contact-actions">
           <a href="mailto:diwasilewskii@gmail.com"><svg class="soc-icon-modal" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-google"></use>
@@ -237,10 +257,10 @@
               </svg> +38 (097) 642-29-70</a>
           <a href="https://t.me/Dima_Tiger" target="_blank" rel="noopener"> <svg class="soc-icon-modal" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-telegram"></use>
-              </svg>Telegram</a>
+              </svg><span data-i18n="modal.telegram">Telegram</span></a>
           <a href="https://www.instagram.com/d.wasilewski_?igsh=N2dkZXRmc290Zm9y" target="_blank" rel="noopener"> <svg class="soc-icon-modal" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-instagram"></use>
-              </svg>Instagram</a>
+              </svg><span data-i18n="modal.instagram">Instagram</span></a>
         </div>
       </div>
     </div>
