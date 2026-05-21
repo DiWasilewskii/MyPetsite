@@ -44,15 +44,15 @@ body {
   background: transparent;
   border: 1px solid var(--border-color);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--text-primary);
   transition: all 0.3s ease;
-  margin-left: 20px;
+  margin-left: 16px;
 }
 
 .theme-toggle:hover {
@@ -66,8 +66,8 @@ body {
   position: absolute;
   opacity: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .sun-icon {
@@ -95,8 +95,8 @@ html.light-theme .moon-icon {
   background: transparent;
   border: 1px solid var(--border-color);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,7 +105,7 @@ html.light-theme .moon-icon {
   transition: all 0.3s ease;
   margin-left: 10px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .lang-toggle:hover {
@@ -964,6 +964,22 @@ html.light-theme .moon-icon {
     font-size: 0.95rem;
   }
 
+  .theme-toggle,
+  .lang-toggle {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+  }
+
+  .theme-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .lang-toggle {
+    font-size: 0.8rem;
+  }
+
   /* About Section */
   .about-container {
     grid-template-columns: 1fr;
@@ -1028,6 +1044,13 @@ html.light-theme .moon-icon {
   .footer-socials a {
     margin-left: 0;
   }
+
+  .footer-info a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* відстань між іконкою та текстом */
+  text-decoration: none;
+}
 }
 
 /* Small Tablets and Large Phones (600px - 767px) */
@@ -1039,28 +1062,49 @@ html.light-theme .moon-icon {
   /* Header */
   .site-header {
     padding: 12px 4%;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .logo {
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .nav-menu {
     margin-left: 0;
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
   }
 
   .header-menu {
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .header-menu a {
     font-size: 0.9rem;
+  }
+
+  .theme-toggle,
+  .lang-toggle {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+  }
+
+  .theme-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .lang-toggle {
+    font-size: 0.65rem;
   }
 
   /* About Section */
@@ -1185,6 +1229,22 @@ html.light-theme .moon-icon {
     width: 54px;
     height: 54px;
   }
+
+  .theme-toggle,
+  .lang-toggle {
+    width: 24px;
+    height: 24px;
+    margin-left: 6px;
+  }
+
+  .theme-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .lang-toggle {
+    font-size: 0.65rem;
+  }
 }
 
 /* Extra Small Phones (< 480px) */
@@ -1217,10 +1277,27 @@ html.light-theme .moon-icon {
     gap: 6px;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
 
   .header-menu a {
     font-size: 0.75rem;
+  }
+
+  .theme-toggle,
+  .lang-toggle {
+    width: 24px;
+    height: 24px;
+    margin-left: 6px;
+  }
+
+  .theme-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .lang-toggle {
+    font-size: 0.65rem;
   }
 
   /* About Section */
