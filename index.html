@@ -4,19 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DiWasilewskii</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.css"
@@ -24,22 +11,35 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      // Застосовуємо тему до рендера, щоб не було "блимання" темної теми
+      try {
+        if (localStorage.getItem('site-theme') === 'light') {
+          document.documentElement.classList.add('light-theme');
+        }
+      } catch (e) {}
+    </script>
   </head>
 
- 
- <body>
+  <body>
     <button class="contact-fab" id="contactFab" aria-label="Відкрити контакти" data-aria-label-key="contactFab">
-      <svg class="fab-icon" width="36" height="36" aria-hidden="true" focusable="false" role="img">
-       
+      <svg class="fab-icon" width="36" height="36" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <use class="icon-part icon-1" href="./img/cat.svg#icon-cat1"></use>
-    <use class="icon-part icon-2" href="./img/cat.svg#icon-cat2"></use>
-    <use class="icon-part icon-3" href="./img/cat.svg#icon-cat3"></use>
-              </svg>
-     
+        <use class="icon-part icon-2" href="./img/cat.svg#icon-cat2"></use>
+        <use class="icon-part icon-3" href="./img/cat.svg#icon-cat3"></use>
+      </svg>
     </button>
-
-
-    
 
     <header class="site-header">
       <div class="logo">DiWasilewskii</div>
@@ -56,7 +56,7 @@
           </li>
         </ul>
       </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Перемкнути тему" data-aria-label-key="themeToggle">
         <svg class="theme-icon sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -72,10 +72,9 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
-      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-        <span class="lang-text" id="langText">UA</span>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Змінити мову" data-aria-label-key="langToggle">
+        <span class="lang-text" id="langText">EN</span>
       </button>
-       <!-- <div class="waves"></div> -->
     </header>
 
     <main>
@@ -84,24 +83,21 @@
         <div class="about-container">
           <!-- Ліва частина (фото) -->
           <div class="about-image">
-            <img class="image-me" src="img/about.png" alt="About us" />
+            <img class="image-me" src="img/about.png" alt="Дмитро Василевський" />
           </div>
 
           <!-- Права частина (текст) -->
           <div class="about-content">
             <h2 class="about-title">
-              <span data-i18n="about.title">About</span> <span class="about-highlight" data-i18n="about.me">Me</span>
+              <span data-i18n="about.title">Про</span> <span class="about-highlight" data-i18n="about.me">мене</span>
             </h2>
-            <p class="about-text" data-i18n="about.text">
-              Мене звати <strong>Василевський Дмитро</strong> я викладач ІКТ, вебдизайнер та автор цифрових освітніх матеріалів. Створюю сучасні сайти, презентації, технічні інфографіки та візуальний контент, поєднуючи стильний дизайн, зручність і зрозумілу подачу інформації.
+            <p class="about-text" data-i18n="about.text">Мене звати Василевський Дмитро — я викладач ІКТ, вебдизайнер та автор цифрових освітніх матеріалів. Створюю сучасні сайти, презентації, технічні інфографіки та візуальний контент, поєднуючи стильний дизайн, зручність і зрозумілу подачу інформації.
 
 Працюю з HTML та CSS, розробляю адаптивні вебсайти й оформлюю навчальні та творчі проєкти для освіти та онлайн-середовища. Особливу увагу приділяю мінімалістичному дизайну, деталям і візуальній естетиці.
 
-У своїх роботах прагну створювати не просто гарний вигляд, а проєкти, які ефективно працюють, привертають увагу та залишають хороше враження.
-            </p>
-            <a href="#contact" class="btn-learn" data-i18n="about.button">Contacts</a>
+У своїх роботах прагну створювати не просто гарний вигляд, а проєкти, які ефективно працюють, привертають увагу та залишають хороше враження.</p>
+            <a href="#contact" class="btn-learn" data-i18n="about.button">Контакти</a>
           </div>
-         
         </div>
       </section>
 
@@ -110,13 +106,13 @@
       <section class="portfolio-section" id="portfolio">
         <h2 class="portfolio-title"><span data-i18n="portfolio.my">My</span> <span data-i18n="portfolio.title">Portfolio</span></h2>
         <div class="portfolio-filters" aria-label="Portfolio filters" role="group">
-          <button class="filter-btn is-active" data-filter="web-dev" data-i18n="portfolio.filter1">Web developing</button>
-          <button class="filter-btn" data-filter="web-design" data-i18n="portfolio.filter2">Web design</button>
-          <button class="filter-btn" data-filter="education" data-i18n="portfolio.filter3">Education</button>
+          <button class="filter-btn is-active" type="button" data-filter="web-dev" data-i18n="portfolio.filter1">Web developing</button>
+          <button class="filter-btn" type="button" data-filter="web-design" data-i18n="portfolio.filter2">Web design</button>
+          <button class="filter-btn" type="button" data-filter="education" data-i18n="portfolio.filter3">Education</button>
         </div>
 
         <div class="carousel-container">
-          <button class="carousel-btn left">&#10094;</button>
+          <button class="carousel-btn left" type="button" aria-label="Попередній проєкт" data-aria-label-key="carouselPrev">&#10094;</button>
           <div class="carousel-track">
             <div class="portfolio-item" data-aos="zoom-in" data-category="web-dev">
               <img src="img/project1.jpg" alt="Project 1" />
@@ -190,13 +186,10 @@
               </div>
             </div>
           </div>
-          <button class="carousel-btn right">&#10095;</button>
+          <button class="carousel-btn right" type="button" aria-label="Наступний проєкт" data-aria-label-key="carouselNext">&#10095;</button>
         </div>
       </section>
 
-      <!-- Portfolio Portfolio Portfolio Portfolio Portfolio Portfolio Portfolio  -->
-
-      <!-- djksfgasghjksgsgj -->
     </main>
 
     <footer class="site-footer" id="contact">
@@ -228,16 +221,16 @@
         <div class="footer-socials">
           <h3 data-i18n="footer.social">I'm in Social</h3>
           <div class="social-links">
-            <a href="https://t.me/Dima_Tiger" target="_blank"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
+            <a href="https://t.me/Dima_Tiger" target="_blank" rel="noopener noreferrer"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-telegram"></use>
               </svg></a>
-            <a href="https://www.instagram.com/d.wasilewski_?igsh=N2dkZXRmc290Zm9y" target="_blank"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
+            <a href="https://www.instagram.com/d.wasilewski_?igsh=N2dkZXRmc290Zm9y" target="_blank" rel="noopener noreferrer"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-instagram"></use>
               </svg></a>
-            <a href="https://www.linkedin.com/in/%D0%B4%D0%BC%D0%B8%D1%82%D1%80%D0%BE-%D0%B2%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%D0%B2%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-959a5932a/" target="_blank"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
+            <a href="https://www.linkedin.com/in/%D0%B4%D0%BC%D0%B8%D1%82%D1%80%D0%BE-%D0%B2%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%D0%B2%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-959a5932a/" target="_blank" rel="noopener noreferrer"> <svg class="soc-icon-footer" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-linkedin2"></use>
               </svg></a>
-            <a href="https://github.com/DiWasilewskii" target="_blank">
+            <a href="https://github.com/DiWasilewskii" target="_blank" rel="noopener noreferrer">
               <svg class="soc-icon-footer" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-github"></use>
               </svg>
@@ -269,10 +262,10 @@
             </svg>
             +38 (097) 642-29-70
           </a>
-          <a href="https://t.me/Dima_Tiger" target="_blank" rel="noopener"> <svg class="soc-icon-modal" width="24" height="24" fill="none">
+          <a href="https://t.me/Dima_Tiger" target="_blank" rel="noopener noreferrer"> <svg class="soc-icon-modal" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-telegram"></use>
               </svg><span data-i18n="modal.telegram">Telegram</span></a>
-          <a href="https://www.instagram.com/d.wasilewski_?igsh=N2dkZXRmc290Zm9y" target="_blank" rel="noopener"> <svg class="soc-icon-modal" width="24" height="24" fill="none">
+          <a href="https://www.instagram.com/d.wasilewski_?igsh=N2dkZXRmc290Zm9y" target="_blank" rel="noopener noreferrer"> <svg class="soc-icon-modal" width="24" height="24" fill="none">
                 <use href="./img/icon.svg#icon-instagram"></use>
               </svg><span data-i18n="modal.instagram">Instagram</span></a>
         </div>

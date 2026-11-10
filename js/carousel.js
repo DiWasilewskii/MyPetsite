@@ -15,19 +15,20 @@ if (container) {
     );
   };
 
+  const gapSize = () => parseFloat(getComputedStyle(track).columnGap) || 0;
+
   const stepSize = () => {
-    const firstVisible = items.find((item) => item.style.display !== 'none');
-    if (!firstVisible) return 0;
-    const itemW = firstVisible.getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-    return itemW + gap;
+    const first = items[0];
+    if (!first) return 0;
+    // offsetWidth не враховує transform (AOS zoom-in), на відміну від getBoundingClientRect
+    return first.offsetWidth + gapSize();
   };
 
   const visibleCount = () => {
     const size = stepSize();
     if (!size) return 1;
-    const containerWidth = container.getBoundingClientRect().width;
-    return Math.max(1, Math.round(containerWidth / size));
+    // ширина області контенту треку (без padding контейнера) + один gap
+    return Math.max(1, Math.round((track.clientWidth + gapSize()) / size));
   };
 
   const clampIndex = () => {
@@ -91,11 +92,19 @@ if (container) {
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
 
+  // Горизонтальна прокрутка (тачпад / Shift+колесо) гортає карусель.
+  // Вертикальне колесо не перехоплюємо, щоб сторінка нормально скролилась.
+  let wheelLocked = false;
   track.addEventListener(
     'wheel',
     (e) => {
+      const dx = e.shiftKey && !e.deltaX ? e.deltaY : e.deltaX;
+      if (Math.abs(dx) <= Math.abs(e.shiftKey ? 0 : e.deltaY) || Math.abs(dx) < 5) return;
       e.preventDefault();
-      e.deltaY > 0 || e.deltaX > 0 ? nextSlide() : prevSlide();
+      if (wheelLocked) return;
+      wheelLocked = true;
+      setTimeout(() => { wheelLocked = false; }, 500);
+      dx > 0 ? nextSlide() : prevSlide();
     },
     { passive: false }
   );

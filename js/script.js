@@ -9,24 +9,24 @@ const translations = {
     about: {
       title: 'Про',
       me: 'мене',
-      text: 'Мене звати Василевський Дмитро — я викладач ІКТ, вебдизайнер та автор цифрових освітніх матеріалів. Створюю сучасні сайти, презентації, технічні інфографіки та візуальний контент, поєднуючи стильний дизайн, зручність і зрозумілу подачу інформації. Працюю з HTML та CSS, розробляю адаптивні вебсайти й оформлюю навчальні та творчі проєкти для освіти та онлайн-середовища. Особливу увагу приділяю мінімалістичному дизайну, деталям і візуальній естетиці. У своїх роботах прагну створювати не просто гарний вигляд, а проєкти, які ефективно працюють, привертають увагу та залишають хороше враження.',
+      text: 'Мене звати Василевський Дмитро — я викладач ІКТ, вебдизайнер та автор цифрових освітніх матеріалів. Створюю сучасні сайти, презентації, технічні інфографіки та візуальний контент, поєднуючи стильний дизайн, зручність і зрозумілу подачу інформації.\n\nПрацюю з HTML та CSS, розробляю адаптивні вебсайти й оформлюю навчальні та творчі проєкти для освіти та онлайн-середовища. Особливу увагу приділяю мінімалістичному дизайну, деталям і візуальній естетиці.\n\nУ своїх роботах прагну створювати не просто гарний вигляд, а проєкти, які ефективно працюють, привертають увагу та залишають хороше враження.',
       button: 'Контакти'
     },
     portfolio: {
       my: 'Мої',
-      title: 'Проекти',
-      filter1: 'Веб розробка',
-      filter2: 'Веб дизайн',
+      title: 'проєкти',
+      filter1: 'Веброзробка',
+      filter2: 'Вебдизайн',
       filter3: 'Освіта',
-      project1: { title: 'Проект 1', desc: 'Цільова сторінка (HTML/CSS/JS)' },
-      project2: { title: 'Проект 2', desc: 'Веб-портфоліо' },
-      project3: { title: 'Проект 3', desc: 'Мобільний UI набір' },
-      project4: { title: 'Проект 4', desc: 'E-commerce SPA' },
-      project5: { title: 'Проект 5', desc: 'Бізнес-сайт' },
-      project6: { title: 'Проект 6', desc: 'Творча концепція' },
-      project7: { title: 'Навчальний проект 1', desc: 'Платформа навчання' },
-      project8: { title: 'Навчальний проект 2', desc: 'Навчальна панель' },
-      project9: { title: 'Навчальний проект 3', desc: 'Конструктор сертифікатів' }
+      project1: { title: 'Проєкт 1', desc: 'Цільова сторінка (HTML/CSS/JS)' },
+      project2: { title: 'Проєкт 2', desc: 'Вебпортфоліо' },
+      project3: { title: 'Проєкт 3', desc: 'Мобільний UI-набір' },
+      project4: { title: 'Проєкт 4', desc: 'E-commerce SPA' },
+      project5: { title: 'Проєкт 5', desc: 'Бізнес-сайт' },
+      project6: { title: 'Проєкт 6', desc: 'Творча концепція' },
+      project7: { title: 'Навчальний проєкт 1', desc: 'Платформа навчання' },
+      project8: { title: 'Навчальний проєкт 2', desc: 'Навчальна панель' },
+      project9: { title: 'Навчальний проєкт 3', desc: 'Конструктор сертифікатів' }
     },
     footer: {
       contacts: 'Контакти',
@@ -40,7 +40,11 @@ const translations = {
       instagram: 'Instagram'
     },
     contactFab: 'Відкрити контакти',
-    contactClose: 'Закрити вікно'
+    contactClose: 'Закрити вікно',
+    themeToggle: 'Перемкнути тему',
+    langToggle: 'Змінити мову',
+    carouselPrev: 'Попередній проєкт',
+    carouselNext: 'Наступний проєкт'
   },
   en: {
     nav: {
@@ -82,7 +86,21 @@ const translations = {
       instagram: 'Instagram'
     },
     contactFab: 'Open contacts',
-    contactClose: 'Close window'
+    contactClose: 'Close window',
+    themeToggle: 'Toggle dark/light theme',
+    langToggle: 'Change language',
+    carouselPrev: 'Previous project',
+    carouselNext: 'Next project'
+  }
+};
+
+// Безпечна робота з localStorage (може бути недоступний у приватному режимі)
+const storage = {
+  get(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) { /* ignore */ }
   }
 };
 
@@ -91,25 +109,26 @@ const translations = {
   const langToggle = document.getElementById('langToggle');
   const langText = document.getElementById('langText');
   const LANG_KEY = 'site-language';
-  
+
   // Get saved language or default to Ukrainian
-  let currentLang = localStorage.getItem(LANG_KEY) || 'uk';
-  
+  let currentLang = storage.get(LANG_KEY);
+  if (!translations[currentLang]) currentLang = 'uk';
+
   // Set initial HTML lang attribute and text
   updateLanguage(currentLang);
-  
+
   // Language toggle button click handler
   if (langToggle) {
     langToggle.addEventListener('click', () => {
       currentLang = currentLang === 'uk' ? 'en' : 'uk';
-      localStorage.setItem(LANG_KEY, currentLang);
+      storage.set(LANG_KEY, currentLang);
       updateLanguage(currentLang);
     });
   }
-  
+
   function updateLanguage(lang) {
     document.documentElement.lang = lang;
-    langText.textContent = lang === 'uk' ? 'EN' : 'UA';
+    if (langText) langText.textContent = lang === 'uk' ? 'EN' : 'UA';
     
     // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -153,39 +172,46 @@ const translations = {
   const THEME_KEY = 'site-theme';
 
   // Check for saved theme preference or default to dark
-  const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
-  
-  // Apply saved theme on page load
-  if (savedTheme === 'light') {
-    htmlElement.classList.add('light-theme');
-  }
+  // (тема також застосовується inline-скриптом у <head>, щоб уникнути блимання)
+  const savedTheme = storage.get(THEME_KEY) || 'dark';
+  htmlElement.classList.toggle('light-theme', savedTheme === 'light');
 
   // Theme toggle button click handler
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const isLight = htmlElement.classList.toggle('light-theme');
       const newTheme = isLight ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, newTheme);
+      storage.set(THEME_KEY, newTheme);
     });
   }
 })();
 
 // Анімація появи при скролі
-window.addEventListener("scroll", function() {
+(function() {
   const about = document.querySelector(".about-content");
-  const position = about.getBoundingClientRect().top;
-  const screenPos = window.innerHeight / 1.2;
+  if (!about) return;
 
-  if (position < screenPos) {
-    about.classList.add("visible");
-  }
-});
+  const reveal = () => {
+    const position = about.getBoundingClientRect().top;
+    const screenPos = window.innerHeight / 1.2;
+
+    if (position < screenPos) {
+      about.classList.add("visible");
+      window.removeEventListener("scroll", reveal);
+    }
+  };
+
+  window.addEventListener("scroll", reveal, { passive: true });
+  reveal(); // блок може бути видимим одразу після завантаження
+})();
 
 // Ініціалізація AOS (Animate On Scroll)
-AOS.init({
-  duration: 800,
-  once: true
-});
+if (window.AOS) {
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+}
 
 // Контактне модальне вікно
 (function() {
@@ -198,11 +224,14 @@ AOS.init({
   const openModal = () => {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    closeBtn.focus();
   };
 
   const closeModal = () => {
+    if (!modal.classList.contains("is-open")) return;
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
+    fab.focus();
   };
 
   fab.addEventListener("click", openModal);

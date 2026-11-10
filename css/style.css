@@ -27,12 +27,17 @@ html.light-theme {
   --border-color-accent: rgba(184, 134, 11, 0.2);
 }
 
+html {
+  scroll-behavior: smooth;
+  /* щоб фіксований header не перекривав секції при переході за якорем */
+  scroll-padding-top: 90px;
+}
+
 body {
-  margin: 0;
-  font-family: 'Georgia', serif;
+  margin: 0 auto;
+  font-family: 'Playfair Display', Georgia, serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Playfair Display', serif;
   max-width: 1920px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -53,6 +58,7 @@ body {
   color: var(--text-primary);
   transition: all 0.3s ease;
   margin-left: 16px;
+  position: relative; /* опорний блок для абсолютно позиціонованих іконок */
 }
 
 .theme-toggle:hover {
@@ -172,16 +178,11 @@ html.light-theme .moon-icon {
   box-shadow: 0 0 0 4px rgba(201, 151, 77, 0.14), 0 12px 32px rgba(1, 11, 19, 0.45);
 }
 
-/* Робимо іконки накладеними одна на одну */
-.contact-fab .fab-icon {
-  position: relative;
-}
-
 .icon-part {
-  position: absolute;
-  top: 0;
-  left: 0;
   opacity: 0; /* За замовчуванням всі приховані */
+  /* масштабування/обертання від центру іконки, а не від лівого верхнього кута SVG */
+  transform-box: fill-box;
+  transform-origin: center;
   /* animation: cycleIcons 9s infinite;  */
   animation: cycleIcons 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   /* 9 секунд на повний цикл (по 3 сек на іконку) */
@@ -227,11 +228,9 @@ html.light-theme .moon-icon {
   }
 }
 
-/* Додатково: трохи підправимо центрування, якщо іконки змістилися */
-.contact-fab .fab-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+  .icon-part { animation: none; }
+  .icon-1 { opacity: 1; }
 }
 
 
@@ -337,6 +336,11 @@ html.light-theme .moon-icon {
   display: grid;
   place-items: center;
   transition: background 0.2s ease, transform 0.2s ease;
+}
+
+html.light-theme .contact-close {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .contact-close:hover {
@@ -588,6 +592,7 @@ html.light-theme .moon-icon {
   line-height: 1.8;
   color: var(--text-secondary);
   margin-bottom: 30px;
+  white-space: pre-line; /* зберігає розбиття на абзаци (\n\n) з перекладів */
 }
 
 
@@ -668,25 +673,11 @@ html.light-theme .moon-icon {
 }
 
 
-.carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Кожна картка */
+/* Кожна картка: 3 в ряд з урахуванням двох проміжків */
 .portfolio-item {
   position: relative;
-  flex: 0 0 calc(100% / 3); 
-  
+  flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
+
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
@@ -708,21 +699,22 @@ html.light-theme .moon-icon {
 }
 
 
-.carousel-container{
-  --gap: 20px;                  
+.carousel-container {
+  --gap: 20px;
   position: relative;
+  z-index: 1;
   border-radius: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 var(--gap);        
+  padding: 0 var(--gap);
 }
 
-.carousel-track{
+.carousel-track {
   display: flex;
-  gap: var(--gap);             
-  transition: transform .5s ease-in-out;
+  gap: var(--gap);
+  transition: transform 0.5s ease-in-out;
 }
 
 @media (max-width: 1024px) {
@@ -741,11 +733,8 @@ html.light-theme .moon-icon {
   }
 
   .portfolio-item {
-    flex: 0 0 calc(50% - var(--gap));
+    flex: 0 0 calc((100% - var(--gap)) / 2);
   }
-
-  .carousel-btn.left { left: -24px; }
-  .carousel-btn.right { right: -24px; }
 }
 
 @media (max-width: 768px) {
@@ -826,12 +815,18 @@ html.light-theme .moon-icon {
   background: rgba(1, 11, 19, 0.9);
 }
 
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Кнопки всередині контейнера: overflow: hidden обрізав їх при від'ємних left/right */
 .carousel-btn.left {
-  left: -60px;   
+  left: 8px;
 }
 
 .carousel-btn.right {
-  right: -60px;  
+  right: 8px;
 }
 
 
@@ -910,7 +905,7 @@ html.light-theme .moon-icon {
 }
 
 .footer-bottom {
-  border-top: 1px solid #0A1520;
+  border-top: 1px solid var(--border-color-accent);
   text-align: center;
   padding-top: 20px;
   font-size: 0.9rem;
@@ -1011,15 +1006,7 @@ html.light-theme .moon-icon {
   }
 
   .portfolio-item {
-    flex: 0 0 calc(100% / 2);
-  }
-
-  .carousel-btn.left {
-    left: -40px;
-  }
-
-  .carousel-btn.right {
-    right: -40px;
+    flex: 0 0 calc((100% - var(--gap)) / 2);
   }
 
   /* Footer */
@@ -1110,7 +1097,7 @@ html.light-theme .moon-icon {
   /* About Section */
   .about-section {
     min-height: auto;
-    padding: 60px 0;
+    padding: 90px 0 60px; /* відступ під фіксований header */
   }
 
   .about-container {
@@ -1302,7 +1289,7 @@ html.light-theme .moon-icon {
 
   /* About Section */
   .about-section {
-    padding: 40px 0;
+    padding: 85px 0 40px; /* відступ під фіксований header */
     min-height: auto;
   }
 
@@ -1342,11 +1329,8 @@ html.light-theme .moon-icon {
   }
 
   .carousel-container {
+    --gap: 8px;
     padding: 0 3px;
-  }
-
-  .carousel-track {
-    gap: 8px;
   }
 
   .portfolio-item {
